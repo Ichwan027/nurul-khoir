@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 
 namespace App\Http\Controllers;
@@ -150,4 +148,3 @@ class Ponpes1Controller extends Controller
         ]);
     }
 }
->>>>>>> 63a3b71 (menyimpan sebelum perubahan)

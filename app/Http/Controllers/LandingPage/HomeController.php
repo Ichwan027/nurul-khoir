@@ -17,7 +17,7 @@ class HomeController extends Controller
 
         $albums = app('App\Helpers\BoardingSchool')->album(3, 'id');
         $title = 'Beranda';
-        // dd($employee);
+        // dd($profile);
         return view('landing-page.home', compact('profile', 'banner', 'employee', 'albums', 'title'));
     }
 

@@ -184,7 +184,7 @@
                 <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
                     <img src="{{ $profile->logo }}" alt="{{ $profile->name }}" style="padding-right: 10px"
                         width="48px">
-                    <span class="fs-4">{{ $profile->name }}</span>
+                    <span class="fs-4">Pondok Pesantren {{ $profile->name }}</span>
                 </a>
 
                 <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">

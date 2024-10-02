@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ExampleController extends Controller
 {
+    public function index()
+    {
+        return view('example.index');
+    }
+
     public function profile()
     {
         $profile = app('App\Helpers\BoardingSchool')->profile();
@@ -29,10 +34,17 @@ class ExampleController extends Controller
         $employee = app('App\Helpers\BoardingSchool')->employee();
         return $employee;
     }
-    
-    public function alumni()
+
+    public function banner(Request $request)
     {
-        $alumni = app('App\Helpers\BoardingSchool')->alumni();
+        $banner = app('App\Helpers\BoardingSchool')->banner($request);
+        return $banner;
+    }
+
+
+    public function alumni(Request $request)
+    {
+        $alumni = app('App\Helpers\BoardingSchool')->alumni($request);
         return $alumni;
     }
 }

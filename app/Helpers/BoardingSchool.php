@@ -4,7 +4,6 @@ namespace App\Helpers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class BoardingSchool extends Model
@@ -61,10 +60,28 @@ class BoardingSchool extends Model
             }
         }
 
-        try {
-            return $response->$method($this->base . $endpoint, $body)->object();
-        } catch (\Exception $e) {
-            return $e->getMessage();
+        if (in_array($method, ['POST', 'PUT', 'DELETE', 'post', 'put', 'delete'])) {
+            try {
+                return $response->$method($this->base . $endpoint, $body)->object();
+            } catch (\Exception $e) {
+                return $e->getMessage();
+            }
+        } else {
+
+            $expired = env('BOARDING_SCHOOL_CACHE_EXPIRED', 60 * 60 * 24);
+            $send = Cache::remember($endpoint, $expired, function () use ($method, $endpoint, $body, $response) {
+                try {
+                    return $response->$method($this->base . $endpoint, $body)->object();
+                } catch (\Exception $e) {
+                    return $e->getMessage();
+                }
+            });
+
+            if (isset($send->data)) {
+                return $send->data;
+            } else {
+                return $send;
+            }
         }
     }
 
@@ -81,7 +98,7 @@ class BoardingSchool extends Model
     {
         $body = [
             "name" => "udin222",
-            "email" => "ichwanm888@gmail.com",
+            "email" => "udin@mail.com",
             "message" => "abcnas"
         ];
         $endpoint = '/api/inbox';
@@ -90,9 +107,13 @@ class BoardingSchool extends Model
         return $response;
     }
 
-    public function album()
+    public function album($limit = null, $orderByType = null)
     {
-        $body = [];
+        $body = [
+            'limit' => $limit,
+            'order_by' => $orderByType
+        ];
+
         $endpoint = '/api/album';
 
         $response = $this->send('get', $endpoint, $body);
@@ -108,6 +129,38 @@ class BoardingSchool extends Model
         return $response;
     }
 
+
+    public function blog($limit = null, $orderByType = null)
+    {
+        $body = [
+            'limit' => $limit,
+            'order_by' => $orderByType
+        ];
+
+        $endpoint = '/api/blog';
+
+        $response = $this->send('get', $endpoint, $body);
+        return $response;
+    }
+
+    public function blogShow($uuid)
+    {
+        $body = [];
+        $endpoint = '/api/blog/' . $uuid;
+
+        $response = $this->send('get', $endpoint, $body);
+        return $response;
+    }
+
+    public function facility()
+    {
+        $body = [];
+        $endpoint = '/api/facility';
+
+        $response = $this->send('get', $endpoint, $body);
+        return $response;
+    }
+
     public function alumni()
     {
         $body = [];
@@ -117,12 +170,53 @@ class BoardingSchool extends Model
         return $response;
     }
 
-    public function employee()
+    public function employee($body = [])
+    {
+        $endpoint = '/api/employee';
+        $response = $this->send('get', $endpoint, $body);
+        return $response;
+    }
+
+    public function banner()
     {
         $body = [];
-        $endpoint = '/api/employee';
+        $endpoint = '/api/banner';
 
         $response = $this->send('get', $endpoint, $body);
+        return $response;
+    }
+
+    public function alumniStore($name, $position, $description, $photo)
+    {
+        $body = [
+            'name' => $name,
+            'position' => $position,
+            'description' => $description,
+        ];
+
+        $endpoint = '/api/alumni';
+
+        $attach = [
+            'photo' => $photo,
+            'param' => 'photo',
+            'contentType' => 'image/jpeg'
+        ];
+
+        $response = $this->send('post', $endpoint, $body, $attach);
+        return $response;
+    }
+
+    public function inboxStore($name, $email, $message)
+    {
+        $body = [
+            'name' => $name,
+            'email' => $email,
+            'message' => $message,
+        ];
+
+        $endpoint = '/api/inbox';
+
+        $response = $this->send('post', $endpoint, $body);
         return $response;
     }
 }

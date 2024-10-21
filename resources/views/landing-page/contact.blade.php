@@ -4,8 +4,8 @@
     <section>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Kontak</li>
             </ol>
         </nav>
     </section>
@@ -17,8 +17,8 @@
                 <p>Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghubungi kami.</p>
                 <ul>
                     <li>Email: {{ $profile->email }}</li>
-                    <li>Phone: {{ $profile->phone }}</li>
-                    <li>Address: {{ $profile->address }}</li>
+                    <li>Nomor Telepon: {{ $profile->phone }}</li>
+                    <li>Alamat: {{ $profile->address }}</li>
                 </ul>
             </div>
             <div class="col-md-6">

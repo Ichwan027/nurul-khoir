@@ -42,7 +42,7 @@
                 <img src="{{ $profile->logo }}" alt="{{ $profile->name }}" width="100%">
             </div>
             <div class="col-sm-7">
-                <h3 class="fw-normal text-body-emphasis">About</h3>
+                <h3 class="fw-normal text-body-emphasis">Tentang Kami</h3>
                 <p class="fs-5 text-body-secondary">{!! $profile->about !!}</p>
             </div>
         </div>
@@ -85,7 +85,7 @@
 
     <hr>
     <section class="mb-5 pt-3">
-        <h3 class="fw-normal text-body-emphasis mb-4">Gallery</h3>
+        <h3 class="fw-normal text-body-emphasis mb-4">Galeri</h3>
         <div class="row row-cols-1 row-cols-md-3 mb-3">
             @foreach ($albums as $item)
                 <div class="col">
@@ -107,50 +107,50 @@
         <div class="row">
             <div class="col-12 col-md text-center">
                 <img class="mb-2" src="{{ $profile->logo }}" alt="{{ $profile->name }}" width="44">
-                <small class="d-block mb-3 text-body-secondary">&copy; 2017–2024</small>
+                <small class="d-block mb-3 text-body-secondary">&copy; 2024</small>
             </div>
-            <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool
-                            stuff</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random
-                            feature</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team
-                            feature</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for
-                            developers</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another
-                            one</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last
-                            time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a>
-                    </li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource
-                            name</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another
-                            resource</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final
-                            resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a>
-                    </li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a>
-                    </li>
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a>
-                    </li>
-                </ul>
-            </div>
+            <!--<div class="col-6 col-md">-->
+            <!--    <h5>Features</h5>-->
+            <!--    <ul class="list-unstyled text-small">-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool-->
+            <!--                stuff</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random-->
+            <!--                feature</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team-->
+            <!--                feature</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for-->
+            <!--                developers</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another-->
+            <!--                one</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last-->
+            <!--                time</a></li>-->
+            <!--    </ul>-->
+            <!--</div>-->
+            <!--<div class="col-6 col-md">-->
+            <!--    <h5>Resources</h5>-->
+            <!--    <ul class="list-unstyled text-small">-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource-->
+            <!--                name</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another-->
+            <!--                resource</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final-->
+            <!--                resource</a></li>-->
+            <!--    </ul>-->
+            <!--</div>-->
+            <!--<div class="col-6 col-md">-->
+            <!--    <h5>About</h5>-->
+            <!--    <ul class="list-unstyled text-small">-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a>-->
+            <!--        </li>-->
+            <!--        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a>-->
+            <!--        </li>-->
+            <!--    </ul>-->
+            <!--</div>-->
         </div>
     </footer>
 @endsection
